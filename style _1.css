@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Me Cards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>3 Things About Me</h1>
+  <div class="card-container">
+    <div class="card">
+      <h2>Nurse</h2>
+      <p>I’m a dedicated healthcare professional helping patients every day.</p>
+    </div>
+    <div class="card">
+      <h2>Data Enthusiast</h2>
+      <p>I’m currently exploring data science to unlock insights from data.</p>
+    </div>
+    <div class="card">
+      <h2>Lifelong Learner</h2>
+      <p>I believe in continuous learning and always seek new knowledge.</p>
+    </div>
+  </div>
+</body>
+</html>
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.card {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+
+  /* Box model: */
+  margin: 10px;        /* space outside the card */
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #007acc;
+}
+
