@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light/Dark Theme Toggle</title>
+    <style>
+        body {
+            transition: background-color 0.3s ease;
+        }
+        
+        .light-mode {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+        
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .light-mode button {
+            background-color: #ddd;
+            color: #000;
+        }
+        
+        .dark-mode button {
+            background-color: #555;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <button id="theme-toggle">Toggle Theme</button>
+    <h1>Welcome to Ayush Collection!</h1>
+    <p>We have all kinds of wears at affordable prices.</p>
+    <p> Choose from our different Varieties </p>
+    <img src="/theme.html/IMG-20250502-WA0031.jpg" alt="" />
+    <script>
+        const body = document.body;
+        const toggleButton = document.getElementById('theme-toggle');
+        
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+            
+            // Update button text
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.textContent = 'Switch to Light Mode';
+            } else {
+                toggleButton.textContent = 'Switch to Dark Mode';
+            }
+        });
+    </script>
+</body>
+</html>
