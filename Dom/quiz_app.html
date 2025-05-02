@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .question-container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .options li {
+            margin-bottom: 10px;
+        }
+        
+        .options li label {
+            cursor: pointer;
+        }
+        
+        #next-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #next-button:hover {
+            background-color: #3e8e41;
+        }
+        
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-container">
+        <p id="question" class="question"></p>
+        <ul id="options" class="options"></ul>
+        <button id="next-button">Next</button>
+        <p id="result"></p>
+    </div>
+    
+    <script>
+        const questions = [
+            {
+                question: "The following are cities in bauchi except?",
+                options: ["Bauchi", "Toro", "warji", "Azare"],
+                answer: 2
+            },
+            {
+                question: "What is the largest planet in our solar system?",
+                options: ["Earth", "Saturn", "Jupiter", "Uranus"],
+                answer: 2
+            },
+            {
+                question: "What the capital of Nigeria?",
+                options: ["Lagos", "Ibadan", "Abuja", "Niger"],
+                answer: 2
+            }
+        ];
+        
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswer = null;
+        
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const nextButton = document.getElementById('next-button');
+        const resultElement = document.getElementById('result');
+        
+        function displayQuestion() {
+            const current = questions[currentQuestion];
+            questionElement.textContent = current.question;
+            optionsElement.innerHTML = '';
+            current.options.forEach((option, index) => {
+                const li = document.createElement('li');
+                const radio = document.createElement('input');
+                const label = document.createElement('label');
+                radio.type = 'radio';
+                radio.name = 'option';
+                radio.value = index;
+                label.textContent = option;
+                li.appendChild(radio);
+                li.appendChild(label);
+                optionsElement.appendChild(li);
+            });
+        }
+        
+        displayQuestion();
+        
+        optionsElement.addEventListener('change', (e) => {
+            selectedAnswer = parseInt(e.target.value);
+        });
+        
+        nextButton.addEventListener('click', () => {
+            if (selectedAnswer !== null) {
+                const current = questions[currentQuestion];
+                if (selectedAnswer === current.answer) {
+                    score++;
+                }
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    displayQuestion();
+                    selectedAnswer = null;
+                } else {
+                    questionElement.style.display = 'none';
+                    optionsElement.style.display = 'none';
+                    nextButton.style.display = 'none';
+                    resultElement.textContent = `Your score: ${score} / ${questions.length}`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
