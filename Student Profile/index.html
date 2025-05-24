@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Info</title>
+</head>
+<body>
+  <h1>Open the browser console to see the student information</h1>
+  <script>
+    // Array of student objects
+    const students = [
+      {
+        firstName: "Ibrahim",
+        lastName: "Isa",
+        age: 19,
+        score: 78,
+        courses: ["Math", "Physics"]
+      },
+      {
+        firstName: "Zainab",
+        lastName: "Umar",
+        age: 18,
+        score: 90,
+        courses: ["Biology", "Chemistry"]
+      },
+      {
+        firstName: "Imaran",
+        lastName: "Shuaib",
+        age: 18,
+        score: 72,
+        courses: ["English", "History"]
+      },
+      {
+        firstName: "Habu",
+        lastName: "Jabir",
+        age: 20,
+        score: 76,
+        courses: ["Computer Science", "Math"]
+      },
+      {
+        firstName: "Uwais",
+        lastName: "Tahir",
+        age: 21,
+        score: 92,
+        courses: ["Economics", "Statistics"]
+      }
+    ];
+t
+    // .map() to create descriptions
+    const studentDescriptions = students.map(({ firstName, lastName, age, score, courses }) => {
+      return `${firstName} ${lastName} is ${age} years old and scored ${score}. They are taking: ${courses.join(", ")}`;
+    });
+
+    console.log("Student Descriptions with map():");
+    console.log(studentDescriptions);
+
+    // .forEach() to display each student's details
+    console.log("\nStudent Details with forEach():");
+    students.forEach(({ firstName, lastName, age, score, courses }, index) => {
+      console.log(`Student ${index + 1}:`);
+      console.log(`Name: ${firstName} ${lastName}`);
+      console.log(`Age: ${age}`);
+      console.log(`Score: ${score}`);
+      console.log(`Courses: ${courses.join(", ")}`);
+      console.log("-------------------------");
+    });
+  </script>
+</body>
+</html>
